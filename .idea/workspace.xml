@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="76fe1c86-be70-4031-9fb8-276c64bbe083" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/reverseSource.py" afterPath="$PROJECT_DIR$/Server/reverseSource.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client/Relay/handleLocalRelaysInfo.py" afterPath="$PROJECT_DIR$/Client/Relay/handleLocalRelaysInfo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/main.py" afterPath="$PROJECT_DIR$/Server/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/sendTask.py" afterPath="$PROJECT_DIR$/Server/sendTask.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,11 +29,84 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="client.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="handleLocalRelaysInfo.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Client/Relay/handleLocalRelaysInfo.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1861">
+              <caret line="172" column="13" lean-forward="true" selection-start-line="172" selection-start-column="13" selection-end-line="172" selection-end-column="13" />
+              <folding>
+                <element signature="e#63#76#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RabbitMQ.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Pub/RabbitMQ.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1728">
+              <caret line="48" column="16" lean-forward="true" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sendTask.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Server/sendTask.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1879">
+              <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+              <folding>
+                <element signature="e#277#287#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="textreview.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Server/textreview.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Server/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="468">
+              <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reverseSource.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Server/reverseSource.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1724">
+              <caret line="362" column="0" lean-forward="true" selection-start-line="362" selection-start-column="0" selection-end-line="362" selection-end-column="0" />
+              <folding>
+                <element signature="e#87#97#0" expanded="true" />
+                <marker date="1532628146190" expanded="true" signature="1553:1689" ph="select my_ip... net" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="client.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Client/client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1078">
-              <caret line="96" column="21" lean-forward="true" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
+            <state relative-caret-position="1464">
+              <caret line="94" column="32" lean-forward="true" selection-start-line="94" selection-start-column="32" selection-end-line="94" selection-end-column="32" />
               <folding>
                 <element signature="e#246#257#0" expanded="true" />
               </folding>
@@ -42,68 +117,9 @@
       <file leaf-file-name="relayConfig.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Client/Relay/relayConfig.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="1" column="33" lean-forward="false" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
+            <state relative-caret-position="108">
+              <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sqlConfig.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Pub/sqlConfig.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="2" column="1" lean-forward="false" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RabbitMQ.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Pub/RabbitMQ.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="711">
-              <caret line="31" column="23" lean-forward="false" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="handleConnInfoQueue.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/handleConnInfoQueue.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="38" column="35" lean-forward="false" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
-              <folding>
-                <element signature="e#94#105#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="reverseSource.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Server/reverseSource.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="281" column="54" lean-forward="false" selection-start-line="281" selection-start-column="54" selection-end-line="281" selection-end-column="54" />
-              <folding>
-                <element signature="e#87#97#0" expanded="true" />
-                <marker date="1532625409626" expanded="true" signature="1553:1689" ph="select my_ip... net" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="handleLocalRelaysInfo.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Client/Relay/handleLocalRelaysInfo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="893">
-              <caret line="96" column="43" lean-forward="true" selection-start-line="96" selection-start-column="43" selection-end-line="96" selection-end-column="43" />
-              <folding>
-                <element signature="e#63#76#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -131,6 +147,8 @@
       <find>ClientEnd</find>
       <find>is_closed</find>
       <find>channel</find>
+      <find>basic_publish</find>
+      <find>basic_</find>
     </findStrings>
     <replaceStrings>
       <replace>links.id</replace>
@@ -171,13 +189,13 @@
         <option value="$PROJECT_DIR$/Pub/receiveConfig.json" />
         <option value="$PROJECT_DIR$/Client/Relay/relayCOnfig.json" />
         <option value="$PROJECT_DIR$/Server/handleConnInfoQueue.py" />
-        <option value="$PROJECT_DIR$/Server/sendTask.py" />
         <option value="$PROJECT_DIR$/Client/Relay/relayConfig.json" />
-        <option value="$PROJECT_DIR$/Server/main.py" />
-        <option value="$PROJECT_DIR$/Client/client.py" />
-        <option value="$PROJECT_DIR$/Client/Relay/handleLocalRelaysInfo.py" />
         <option value="$PROJECT_DIR$/Pub/RabbitMQ.py" />
         <option value="$PROJECT_DIR$/Server/reverseSource.py" />
+        <option value="$PROJECT_DIR$/Client/client.py" />
+        <option value="$PROJECT_DIR$/Server/sendTask.py" />
+        <option value="$PROJECT_DIR$/Client/Relay/handleLocalRelaysInfo.py" />
+        <option value="$PROJECT_DIR$/Server/main.py" />
       </list>
     </option>
   </component>
@@ -188,9 +206,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="10" />
-    <option name="width" value="1366" />
-    <option name="height" value="758" />
+    <option name="x" value="1366" />
+    <option name="y" value="27" />
+    <option name="width" value="3840" />
+    <option name="height" value="2133" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -556,22 +575,28 @@
       <option name="project" value="LOCAL" />
       <updated>1532624442322</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="kill pidof">
+      <created>1532628568713</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1532628568713</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="3840" height="2133" extended-state="6" />
-    <editor active="true" />
+    <frame x="1366" y="0" width="3840" height="2160" extended-state="6" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285528" sideWeight="0.5115108" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32807103" sideWeight="0.4884892" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3275777" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3315" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3315" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13825858" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32730263" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.327" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32807103" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -618,7 +643,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="change is_close" />
-    <option name="LAST_COMMIT_MESSAGE" value="change is_close" />
+    <MESSAGE value="kill pidof" />
+    <option name="LAST_COMMIT_MESSAGE" value="kill pidof" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -676,13 +702,6 @@
     <entry file="file://$PROJECT_DIR$/token" />
     <entry file="file://$PROJECT_DIR$/receiveConfig.json" />
     <entry file="file://$PROJECT_DIR$/RabbitMQ.py" />
-    <entry file="file:///usr/local/lib/python3.6/dist-packages/pika/adapters/blocking_connection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="2103" column="18" lean-forward="false" selection-start-line="2103" selection-start-column="18" selection-end-line="2103" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config.json" />
     <entry file="file://$PROJECT_DIR$/ORM.py" />
     <entry file="file://$PROJECT_DIR$/reverseSource.py" />
@@ -737,40 +756,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Client/currentTask">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/sendTask.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1703">
-          <caret line="57" column="54" lean-forward="true" selection-start-line="57" selection-start-column="54" selection-end-line="57" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Pub/receiveConfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Pub/ORM.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2592">
@@ -789,38 +774,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Client/Relay/relayConfig.json">
+    <entry file="file://$PROJECT_DIR$/Pub/receiveConfig.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="1" column="33" lean-forward="false" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
+        <state relative-caret-position="324">
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Client/client.py">
+    <entry file="file://$PROJECT_DIR$/Server/reverseSource.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1078">
-          <caret line="96" column="21" lean-forward="true" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
+        <state relative-caret-position="1724">
+          <caret line="362" column="0" lean-forward="true" selection-start-line="362" selection-start-column="0" selection-end-line="362" selection-end-column="0" />
           <folding>
-            <element signature="e#246#257#0" expanded="true" />
+            <element signature="e#87#97#0" expanded="true" />
+            <marker date="1532628146190" expanded="true" signature="1553:1689" ph="select my_ip... net" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Client/Relay/handleLocalRelaysInfo.py">
+    <entry file="file://$PROJECT_DIR$/Client/currentTask">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="893">
-          <caret line="96" column="43" lean-forward="true" selection-start-line="96" selection-start-column="43" selection-end-line="96" selection-end-column="43" />
-          <folding>
-            <element signature="e#63#76#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.6/dist-packages/pika/adapters/blocking_connection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="2430" column="8" lean-forward="false" selection-start-line="2430" selection-start-column="8" selection-end-line="2430" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Pub/RabbitMQ.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="711">
-          <caret line="31" column="23" lean-forward="false" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+        <state relative-caret-position="1728">
+          <caret line="48" column="16" lean-forward="true" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
@@ -829,21 +821,68 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/handleConnInfoQueue.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="38" column="35" lean-forward="false" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
+        <state relative-caret-position="342">
+          <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
           <folding>
             <element signature="e#94#105#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/reverseSource.py">
+    <entry file="file://$PROJECT_DIR$/Client/Relay/relayConfig.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="281" column="54" lean-forward="false" selection-start-line="281" selection-start-column="54" selection-end-line="281" selection-end-column="54" />
+        <state relative-caret-position="108">
+          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/Relay/handleLocalRelaysInfo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1861">
+          <caret line="172" column="13" lean-forward="true" selection-start-line="172" selection-start-column="13" selection-end-line="172" selection-end-column="13" />
           <folding>
-            <element signature="e#87#97#0" expanded="true" />
-            <marker date="1532625409626" expanded="true" signature="1553:1689" ph="select my_ip... net" />
+            <element signature="e#63#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/textreview.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/sendTask.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1879">
+          <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding>
+            <element signature="e#277#287#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1464">
+          <caret line="94" column="32" lean-forward="true" selection-start-line="94" selection-start-column="32" selection-end-line="94" selection-end-column="32" />
+          <folding>
+            <element signature="e#246#257#0" expanded="true" />
           </folding>
         </state>
       </provider>

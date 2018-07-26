@@ -6,6 +6,7 @@ import signal
 import socket
 import sys
 from os import path
+import os
 
 s = path.abspath(__file__)
 with open(path.split(s)[0] + "/relayConfig.json") as f:
@@ -51,7 +52,7 @@ class LocalRelayInfoHandler:
         try:
             os.unlink(self.conninfo_address)
             os.unlink(self.cell_address)
-        except OSError:
+        except :
             if os.path.exists(self.conninfo_address):
                 raise "file exists"
 
@@ -84,7 +85,7 @@ class LocalRelayInfoHandler:
                     return
                 if(self.connChannel.is_closed):
                     self.connChannel=self.rabbitMQ.getChannel()
-                    self.connChannel.queue_declare(queue=self.connInfo)
+                    self.connChannel.queue_declare(queue=self.connChannel)
                 self.connChannel.basic_publish(exchange = "", routing_key = self.connInfo, body = s)
 
 
@@ -152,4 +153,30 @@ class LocalRelayInfoHandler:
 if __name__ == "__main__":
     # test
     print("handleLocalRelaysInfo start")
+    print("run as daemon")
+    try:
+        if os.fork() > 0: os._exit(0)
+    except OSError as error:
+        print('fork #1 failed: %d (%s)') % (error.errno, error.strerror)
+        os._exit(1)
+    os.chdir('/')
+    os.setsid()
+    os.umask(0)
+    try:
+        pid = os.fork()
+        if pid > 0:
+            print('Daemon PID %d'% pid)
+            os._exit(0)
+    except OSError as error:
+        print ('fork #2 failed: %d (%s)') % (error.errno, error.strerror)
+        os._exit(1)
+    # 重定向标准IO
+    sys.stdout.flush()
+    sys.stderr.flush()
+    si = open("/dev/null", 'r')
+    so = open("/dev/null", 'a+')
+    se = open("/dev/null", 'a+')
+    os.dup2(si.fileno(), sys.stdin.fileno())
+    os.dup2(so.fileno(), sys.stdout.fileno())
+    os.dup2(se.fileno(), sys.stderr.fileno())
     LocalRelayInfoHandler().startHandleLocalRelaysInfo()
