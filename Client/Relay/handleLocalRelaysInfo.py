@@ -82,7 +82,7 @@ class LocalRelayInfoHandler:
                 s = json.dumps(d)
                 if (s is None):
                     return
-                if(self.connChannel.is_closed()):
+                if(self.connChannel.is_closed):
                     self.connChannel=self.rabbitMQ.getChannel()
                     self.connChannel.queue_declare(queue=self.connChannel)
                 self.connChannel.basic_publish(exchange = "", routing_key = self.connInfo, body = s)
@@ -94,7 +94,7 @@ class LocalRelayInfoHandler:
         s = json.dumps(d)
         if (s is not None):
             # print(s)
-            if(self.cellChannel.is_closed()):
+            if(self.cellChannel.is_closed):
                 self.cellChannel=self.rabbitMQ.getChannel()
                 self.cellChannel.queue_declare(queue = self.cellInfo)
             self.cellChannel.basic_publish(exchange = "", routing_key = self.cellInfo, body = s)
