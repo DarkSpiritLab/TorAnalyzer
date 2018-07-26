@@ -8,6 +8,7 @@ import json
 import time
 import urllib
 import sys
+import subprocess
 from os import path
 sys.path.append(path.split(path.split(path.abspath(__file__))[0])[0])
 
@@ -29,6 +30,7 @@ class Client():
         self.rabbitMQ=RabbitMQWrapper()
         self.localIP = get_host_ip()
 
+
     # def sendResult(self,work):
     #     work["my_ip"]=self.localIP
     #     result=work
@@ -42,6 +44,7 @@ class Client():
 
     def runWork(self,work):
         print("runWork start")
+        self.startTor()
         self.writeTaskIntoFile(work["request_id"],work["url_id"])
         url = work["url"]
         if not url.startswith("http"):
@@ -55,6 +58,17 @@ class Client():
         except:
             print("Fail: "+url)
         print("runWork end")
+        #stop tor after finishing this request
+        self.stopTor()
+
+    def stopTor(self):
+        self.p.kill()
+
+    def startTor(self):
+        args=['/tor_release/tor', '-f', '/config/torrc']
+        self.p=subprocess.Popen(args = args)
+        time.sleep(3)
+        pass
 
     def receiveWork(self):
         print("receiveWork start")

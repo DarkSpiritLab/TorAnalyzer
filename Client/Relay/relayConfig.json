@@ -1,4 +1,4 @@
 {
-  "connInfoAddress":"/tmp/connInfo",
-  "cellAddress":"/tmp/cell"
+  "connInfoAddress":"/tor_release/connInfo",
+  "cellAddress":"/tor_release/cell"
 }
