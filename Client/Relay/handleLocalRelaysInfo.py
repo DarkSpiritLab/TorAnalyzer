@@ -131,7 +131,6 @@ class LocalRelayInfoHandler:
             sock.close()
 
     def startHandleLocalRelaysInfo(self):
-
         signal.signal(signal.SIGINT, exiter)
         cellThread = Thread(target = LocalRelayInfoHandler.listenSocketFile, args = (self, 0, LocalRelayInfoHandler.handleCellBody))
         cellThread.start()

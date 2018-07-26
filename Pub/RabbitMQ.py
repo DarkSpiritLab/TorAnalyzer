@@ -2,7 +2,7 @@ import json
 import pika
 from os import path
 
-with open(path.join(path.split(__file__)[0],"receiveConfig.json"))as f:
+with open(path.join(path.split(__file__)[0], "receiveConfig.json"))as f:
     config = json.loads(f.read())
 
 
@@ -24,27 +24,41 @@ class RabbitMQWrapper:
         print("RabbitMQWrapper init")
         try:
             self.credentials = pika.PlainCredentials(RabbitMQInfo.pikaAccount, RabbitMQInfo.pikaPassword)
-
         except:
-            print("Failed to connect to RabbitMQ")
-            exit(0)
-    def __del__(self):
-        try:
-            self.connectionRabbitMQ.close()
-        except:
-            pass
-
+            print("Failed to connect RabbitMQ")
+            exit()
+        self.connections={}
     def getConfig(self):
         return config
 
     def getChannel(self):
-        self.connectionRabbitMQ = pika.BlockingConnection(
-            pika.ConnectionParameters(RabbitMQInfo.rabbitMqServerIP, RabbitMQInfo.rabbitMqServerPort, '/',
-                self.credentials))
-        channel = self.connectionRabbitMQ.channel()
+        connection = RabbitMQConnection(credentials = self.credentials)
+        channel=connection.getChannel()
+        self.connections[channel]=connection
         return channel
-    def closeConnection(self):
+
+    def closeChannel(self, channel):
         try:
-            self.connectionRabbitMQ.close()
+            self.connections[channel].close()
         except:
             print("Failed to close RabbitMQ connection")
+
+
+class RabbitMQConnection():
+    def __init__(self, credentials):
+        times = 5
+        while (times > 0):
+            try:
+                self.connectionRabbitMQ = pika.BlockingConnection(
+                    pika.ConnectionParameters(RabbitMQInfo.rabbitMqServerIP, RabbitMQInfo.rabbitMqServerPort, '/',
+                        credentials))
+            except:
+                print("Failed to connect RabbitMQ")
+                times -= 1
+                continue
+            break
+        if (times == 0):
+            exit(0)
+
+    def getChannel(self):
+        return self.connectionRabbitMQ.channel()
