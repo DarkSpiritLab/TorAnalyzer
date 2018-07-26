@@ -1,0 +1,11 @@
+{
+  "rabbitMqServerIP": "10.11.52.13",
+  "rabbitMqServerPort": 5672,
+  "sqlFilePath": "sqlite:////tmp/1.sql",
+  "pikaAccount": "test",
+  "pikaPassword": "test",
+  "reverseResultQueue": "reverseResult",
+  "reverseRequestQueue": "reverseRequest",
+  "connInfo": "connInfo",
+  "cellInfo": "cellInfo"
+}
