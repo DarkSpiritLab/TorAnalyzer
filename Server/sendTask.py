@@ -15,7 +15,9 @@ from Pub.RabbitMQ import RabbitMQWrapper
 
 from Pub.ORM import Url, sessionmaker, engine
 
-
+'''
+{"url":url,"url_id":url_id, "level": self.level, "request_id":random.randint(0,100000000)}
+'''
 class clientWork:
     queueStartName = "clientReceive"
     queueEndName = "clientEnd"
@@ -27,6 +29,7 @@ class clientWork:
     username = ""
     password = ""
     num=10
+
     def sendTask(self,url,num=10,level="1"):
         session=self.Session()
         u=session.query(Url).filter_by(url=url).first()
@@ -35,6 +38,7 @@ class clientWork:
             u=Url(url=url)
             session.add(u)
             session.commit()
+            #todo check u contains url_id
         url_id=u.url_id
 
         for i in range(num):
@@ -48,3 +52,5 @@ class clientWork:
         self.rabbitMQ=RabbitMQWrapper()
         self.sendChannel = self.rabbitMQ.getChannel()
         self.sendChannel.queue_declare(queue = self.queueStartName)
+
+

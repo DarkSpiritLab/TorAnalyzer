@@ -11,13 +11,11 @@ class RabbitMQInfo:
     rabbitMqServerPort = config["rabbitMqServerPort"]
     username = config["pikaAccount"]
     password = config["pikaPassword"]
-    sqlFilePath = config["sqlFilePath"]
     pikaAccount = config["pikaAccount"]
     pikaPassword = config["pikaPassword"]
     reverseResultQueue = config["reverseResultQueue"]
     connInfo = config["connInfo"]
     cellInfo = config["cellInfo"]
-
 
 class RabbitMQWrapper:
     def __init__(self):

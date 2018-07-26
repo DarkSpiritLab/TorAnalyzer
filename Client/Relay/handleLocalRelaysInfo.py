@@ -1,5 +1,4 @@
 # curl --socks5-hostname 127.0.0.1:9011 6gi7ufqbqnllbbvx.onion
-
 import base64
 import json
 import os
@@ -8,6 +7,10 @@ import socket
 import sys
 from os import path
 s=path.abspath(__file__)
+with open(path.split(s)[0]+"/relayConfig.json") as f:
+    s1=f.read()
+    j=json.loads(s1)
+
 for i in range(3):
     s=path.split(s)[0]
 sys.path.append(s)
@@ -36,14 +39,13 @@ class LocalRelayInfoHandler:
 
         self.cellChannel.queue_declare(queue = self.cellInfo)
 
-        path = "/tor_release"
-        self.conninfo_address = path + '/conninfo'
-        self.cell_address = path + '/cell'
-        if (not os.path.exists(path)):
-            try:
-                os.mkdir(path)
-            except:
-                print("failed to mkdir")
+        self.conninfo_address = j["connInfoAddress"]
+        self.cell_address = j["cellAddress"]
+        # if (not os.path.exists(path)):
+        #     try:
+        #         os.mkdir(path)
+        #     except:
+        #         print("failed to mkdir")
         # Make sure the socket does not already exist
         try:
             os.unlink(self.conninfo_address)
