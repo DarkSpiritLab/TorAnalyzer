@@ -51,6 +51,8 @@ class RealysMessageHandler:
                             request_id = int(s[0], 10)
                             url_id = int(s[1], 10)
                 except:
+                    request_id=0
+                    url_id=0
                     print("error in pasering currentTask file")
                 l = d["info"]
                 link = Link(request_id = request_id, url_id = url_id, datetime = time.time()

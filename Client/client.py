@@ -22,21 +22,19 @@ rmq= RabbitMQInfo()
 
 
 httpAgent = 'http://127.0.0.1:9011/'
-queueName = "clientReceive"
-queueEnd = "clientEnd"
-queueResult = "clientResult"
+queueName = "clientTask"
 
 class Client():
     def __init__(self):
         self.rabbitMQ=RabbitMQWrapper()
         self.localIP = get_host_ip()
 
-    def sendResult(self,work):
-        work["my_ip"]=self.localIP
-        result=work
-        infor = json.dumps(result)
-        self.channel.basic_publish(exchange='', routing_key=queueResult, body=infor)
-        print("sendResult "+infor)
+    # def sendResult(self,work):
+    #     work["my_ip"]=self.localIP
+    #     result=work
+    #     infor = json.dumps(result)
+    #     self.channel.basic_publish(exchange='', routing_key=queueResult, body=infor)
+    #     print("sendResult "+infor)
 
 
     def receiveEnd(self):
@@ -56,39 +54,37 @@ class Client():
             print("Success: "+url)
         except:
             print("Fail: "+url)
-
         print("runWork end")
 
     def receiveWork(self):
         print("receiveWork start")
         channel=self.rabbitMQ.getChannel()
         channel.queue_declare(queue=queueName)
-        channel.queue_declare(queue = queueResult)
         channel.basic_qos(prefetch_count=1)
         lastUrl = ""
         number = 30  # receive same work tell number
         for method_fram,properties,body in channel.consume(queueName):
-            try:
-                result = json.loads(body)
-                channel.basic_ack(delivery_tag = method_fram.delivery_tag)
-                if lastUrl == result["url"]:
-                    number-=1
-                    if number !=0:
-                        time.sleep(1)
-                        continue
-                number = 30
-                lastUrl = result["url"]
-                print("Receive client work: " + str(body))
-                self.runWork(result)
-            except:
-                print("Failed to receive work")
+            # try:
+            result = json.loads(body.decode("utf8"))
+            channel.basic_ack(delivery_tag = method_fram.delivery_tag)
+            if lastUrl == result["url"]:
+                number-=1
+                if number !=0:
+                    time.sleep(1)
+                    continue
+            number = 30
+            lastUrl = result["url"]
+            print("Receive client work: " + body.decode("utf8"))
+            self.runWork(result)
+            # except:
+            #     print("Failed to receive work")
         requeued_messages = channel.cancle()
         print('Requeued %i messages' %requeued_messages)
         print("receiveWork end")
 
-    def writeTaskIntoFile(request_id,url_id):
+    def writeTaskIntoFile(self,request_id,url_id):
         with open("./currentTask","w+") as f:
-            l=[request_id,url_id]
+            l=[str(request_id),str(url_id)]
             f.writelines(l)
         return
 
