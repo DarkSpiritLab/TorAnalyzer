@@ -2,13 +2,12 @@
 '''
 Receive message from queue,paser it,and insert it into MySQL or sqlite
 '''
-import json
-from threading import Thread
 import time
-import pika
-import sqlalchemy
-from ORM import *
-import RabbitMQ
+from threading import Thread
+
+import Pub.RabbitMQ
+
+from Pub.ORM import *
 
 
 class RealysMessageHandler:
@@ -18,7 +17,7 @@ class RealysMessageHandler:
         cellInfo = config["cellInfo"]
         connChannel = RabbitMQ.getChannel()
         connChannel.queue_declare(queue = connInfo)
-        cellChannel=RabbitMQ.getChannel()
+        cellChannel= RabbitMQ.getChannel()
         cellChannel.queue_declare(queue = cellInfo)
         Session=sessionmaker(bind = engine)
 
