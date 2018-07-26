@@ -6,13 +6,14 @@ import signal
 import socket
 import sys
 from os import path
-s=path.abspath(__file__)
-with open(path.split(s)[0]+"/relayConfig.json") as f:
-    s1=f.read()
-    j=json.loads(s1)
+
+s = path.abspath(__file__)
+with open(path.split(s)[0] + "/relayConfig.json") as f:
+    s1 = f.read()
+    j = json.loads(s1)
 
 for i in range(3):
-    s=path.split(s)[0]
+    s = path.split(s)[0]
 sys.path.append(s)
 
 from threading import Thread
@@ -79,8 +80,11 @@ class LocalRelayInfoHandler:
             if ("info" in d):
                 d["info"]["my_ip"] = self.localIP
                 s = json.dumps(d)
-                if(s is None):
+                if (s is None):
                     return
+                if(self.connChannel.is_closed()):
+                    self.connChannel=self.rabbitMQ.getChannel()
+                    self.connChannel.queue_declare(queue=self.connChannel)
                 self.connChannel.basic_publish(exchange = "", routing_key = self.connInfo, body = s)
 
 
@@ -89,7 +93,10 @@ class LocalRelayInfoHandler:
         d = {"cell": base64.b64encode(body).decode("utf-8"), "my_ip": self.localIP}
         s = json.dumps(d)
         if (s is not None):
-            print(s)
+            # print(s)
+            if(self.cellChannel.is_closed()):
+                self.cellChannel=self.rabbitMQ.getChannel()
+                self.cellChannel.queue_declare(queue = self.cellInfo)
             self.cellChannel.basic_publish(exchange = "", routing_key = self.cellInfo, body = s)
 
 
@@ -102,7 +109,7 @@ class LocalRelayInfoHandler:
         sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
         # Set REUSEADDR and bind the socket to the port
         sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 10)
-        print(address)
+        # print(address)
         try:
             os.remove(address)
         except:
@@ -125,7 +132,7 @@ class LocalRelayInfoHandler:
                             break
                         data += temp
                     if (data is not None and len(data) > 0):
-                        targetMethod(self,data)
+                        targetMethod(self, data)
                 finally:
                     # Clean up the connection
                     connection.close()
@@ -134,9 +141,11 @@ class LocalRelayInfoHandler:
 
     def startHandleLocalRelaysInfo(self):
         signal.signal(signal.SIGINT, exiter)
-        cellThread = Thread(target = LocalRelayInfoHandler.listenSocketFile, args = (self, 0, LocalRelayInfoHandler.handleCellBody))
+        cellThread = Thread(target = LocalRelayInfoHandler.listenSocketFile,
+            args = (self, 0, LocalRelayInfoHandler.handleCellBody))
         cellThread.start()
-        connThread = Thread(target = LocalRelayInfoHandler.listenSocketFile, args = (self, 1, LocalRelayInfoHandler.handleConnBody))
+        connThread = Thread(target = LocalRelayInfoHandler.listenSocketFile,
+            args = (self, 1, LocalRelayInfoHandler.handleConnBody))
         connThread.start()
 
 

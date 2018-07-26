@@ -98,8 +98,8 @@ class Client():
 
     def writeTaskIntoFile(self,request_id,url_id):
         with open("./currentTask","w+") as f:
-            l=[str(request_id),str(url_id)]
-            f.writelines(l)
+            f.writelines(str(request_id)+"\n")
+            f.writelines(str(url_id))
         return
 
 

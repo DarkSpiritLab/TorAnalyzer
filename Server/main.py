@@ -8,7 +8,8 @@ def startHanderMessage():
     handler=RealysMessageHandler()
     while(True):
         handler.startReceive()
-        time.time()
+        time.sleep(1)
+
 if __name__=="__main__":
     t1=Thread(target = startHanderMessage)
     t1.start()
