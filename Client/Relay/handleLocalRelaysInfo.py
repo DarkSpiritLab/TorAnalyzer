@@ -84,7 +84,7 @@ class LocalRelayInfoHandler:
                     return
                 if(self.connChannel.is_closed):
                     self.connChannel=self.rabbitMQ.getChannel()
-                    self.connChannel.queue_declare(queue=self.connChannel)
+                    self.connChannel.queue_declare(queue=self.connInfo)
                 self.connChannel.basic_publish(exchange = "", routing_key = self.connInfo, body = s)
 
 

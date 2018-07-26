@@ -9,8 +9,10 @@ import time
 import urllib
 import sys
 import subprocess
+from os import system
 from os import path
 sys.path.append(path.split(path.split(path.abspath(__file__))[0])[0])
+currentPath=path.split(path.abspath(__file__))[0]
 
 from urllib import request
 
@@ -47,13 +49,13 @@ class Client():
         self.startTor()
         self.writeTaskIntoFile(work["request_id"],work["url_id"])
         url = work["url"]
-        if not url.startswith("http"):
-            url = "http://"+url
+        # if not url.startswith("http"):
+        #  url = "http://"+url
         try:
-            proxy_handler = urllib.request.ProxyHandler({'http': httpAgent})
-            opener = urllib.request.build_opener(proxy_handler)
-            opener.open(url)
-            self.sendResult(work)
+            #proxy_handler = urllib.request.ProxyHandler({'http': httpAgent})
+            #opener = urllib.request.build_opener(proxy_handler)
+            #opener.open(url)
+            system("curl --sock5-hostname 127.0.0.1:9011 %s"%url)
             print("Success: "+url)
         except:
             print("Fail: "+url)
@@ -65,6 +67,7 @@ class Client():
         self.p.kill()
 
     def startTor(self):
+        system("kill -9 $(pidof /tor_release/tor)")
         args=['/tor_release/tor', '-f', '/config/torrc']
         self.p=subprocess.Popen(args = args)
         time.sleep(3)
@@ -97,7 +100,7 @@ class Client():
         print("receiveWork end")
 
     def writeTaskIntoFile(self,request_id,url_id):
-        with open("./currentTask","w+") as f:
+        with open(currentPath+"/currentTask","w+") as f:
             f.writelines(str(request_id)+"\n")
             f.writelines(str(url_id))
         return
